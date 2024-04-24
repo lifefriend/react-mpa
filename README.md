@@ -66,3 +66,35 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### npm 包打补丁 — patch-package
+
+#### 1. 安装，yarn add patch-package -D/-g
+
+```
+// 官方推荐同时安装 postinstall-postinstall
+yarn add patch-package postinstall-postinstall
+```
+
+#### 2. 在 package.json 中添加命令
+
+```
+"scripts": {
++  "postinstall": "patch-package"
+ }
+```
+
+#### 3. 修改 npm 包，并运行补丁命令
+
+```
+yarn patch-package package-name
+// 例如：yarn patch-package packageA
+```
+
+#### 4. 验证补丁是否生效，移除 npm 包并重新 yarn，如果修改的内容还在则补丁生效
+
+#### 5. 将补丁上传到 git
+
+### 功能清单
+
+#### 1、GeoTiff 读取及展示
